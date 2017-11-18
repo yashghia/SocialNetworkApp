@@ -87,7 +87,7 @@ public class SignupActivity extends AppCompatActivity {
         fromDatePickerDialog.show();
     }
     public void registerUser(View view) {
-//        mAuth = FirebaseAuth.getInstance();
+       // mAuth = FirebaseAuth.getInstance();
 //        mAuth.signOut();
 //        Intent i = new Intent(SignupActivity.this, MainActivity.class);
 //        startActivity(i);
@@ -95,32 +95,37 @@ public class SignupActivity extends AppCompatActivity {
         final String passwordText = passwordData.getText().toString().trim();
         final String conpasswordText = conPass.getText().toString().trim();
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        mAuth = FirebaseAuth.getInstance();
         if (emailText.matches(emailPattern) && passwordText.equals(conpasswordText) && !birthdayText.equals("") && ageCalculation > 13 && !passwordText.equals("") && !firstName.equals("") && !lastName.equals("")) {
-            mAuth.createUserWithEmailAndPassword(emailText, passwordText).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        User newUser = new User();
-                        newUser.setFirstName(firstName.getText().toString().trim());
-                        newUser.setLastName(lastName.getText().toString().trim());
-                        newUser.setEmailId(emailText);
-                        newUser.setDateofBirth(birthdayText.getText().toString().trim());
-                        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser() ;
-                        newUser.setUserId(currentUser.getUid().toString());
-                        //Add data
-                        dataref = FirebaseDatabase.getInstance().getReference().child("Users");
-                        dataref.push().setValue(newUser);
-                        Toast.makeText(SignupActivity.this, "Registration successful", Toast.LENGTH_LONG).show();
-                        Intent i = new Intent(SignupActivity.this, PostsActivity.class);
-                        startActivity(i);
-                    } else {
-                        Log.d("The exception", "is" + task.getException());
-                        Toast.makeText(SignupActivity.this, "Failed to register the user", Toast.LENGTH_LONG).show();
-                    }
-                }
-            });
+            createUser(emailText, passwordText);
         } else {
             Toast.makeText(SignupActivity.this, "Make sure Email ID is valid, password texts are same and age is above 13", Toast.LENGTH_LONG).show();
         }
     }
+    public void createUser(final String emailText1, String conpasswordText1){
+        mAuth.createUserWithEmailAndPassword(emailText1, conpasswordText1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    User newUser = new User();
+                    newUser.setFirstName(firstName.getText().toString().trim());
+                    newUser.setLastName(lastName.getText().toString().trim());
+                    newUser.setEmailId(emailText1);
+                    newUser.setDateofBirth(birthdayText.getText().toString().trim());
+                    FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser() ;
+                    newUser.setUserId(currentUser.getUid().toString());
+                    //Add data
+                    dataref = FirebaseDatabase.getInstance().getReference().child("Users");
+                    dataref.push().setValue(newUser);
+                    Toast.makeText(SignupActivity.this, "Registration successful", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(SignupActivity.this, PostsActivity.class);
+                    startActivity(i);
+                } else {
+                    Log.d("The exception", "is" + task.getException());
+                    Toast.makeText(SignupActivity.this, "Failed to register the user", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
 }

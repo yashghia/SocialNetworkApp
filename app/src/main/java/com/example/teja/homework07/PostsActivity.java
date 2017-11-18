@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class PostsActivity extends AppCompatActivity {
     private DatabaseReference dataref;
-    public static ArrayList<User> profiles = new ArrayList<>();
+    public static ArrayList<User> users = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,13 +32,13 @@ public class PostsActivity extends AppCompatActivity {
                 dataref.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        profiles = new ArrayList<User>();
+                        users = new ArrayList<User>();
                         for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                             User userdata = postSnapshot.getValue(User.class);
                             Log.d("The ui2","is"+userdata.getUserId());
                             FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
                             if (userdata.getUserId().equals(currentFirebaseUser.getUid().toString())){
-                                profiles.add(userdata);
+                                users.add(userdata);
                             }
                         }
                     }
