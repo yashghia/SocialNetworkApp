@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.teja.homework07.SignupActivity">
+
+    <EditText
+        android:id="@+id/lastname"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/emailID"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:ems="10"
+        android:focusedByDefault="false"
+        android:hint="Last Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/emailID"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/date"
+        android:layout_alignStart="@+id/lastname"
+        android:layout_marginBottom="12dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pWord"
+        android:layout_alignStart="@+id/emailID"
+        android:ems="10"
+        android:hint="Date of Birth"
+        android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/pWord"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/confirmpWord"
+            android:layout_alignStart="@+id/emailID"
+            android:layout_marginBottom="15dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/confirmpWord"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/register"
+            android:layout_alignStart="@+id/pWord"
+            android:layout_marginBottom="74dp"
+            android:ems="10"
+            android:hint="Confirm Password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="77dp"
+            android:text="Register"
+            android:onClick="registerUser"/>
+
+    <EditText
+        android:id="@+id/fName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lastname"
+        android:layout_alignEnd="@+id/lastname"
+        android:layout_alignStart="@+id/lastname"
+        android:layout_marginBottom="13dp"
+        android:defaultFocusHighlightEnabled="true"
+        android:ems="10"
+        android:focusedByDefault="true"
+        android:hint="First Name"
+        android:inputType="textPersonName" />
+</RelativeLayout>

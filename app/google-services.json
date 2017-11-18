@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "243081105866",
+    "firebase_url": "https://homework07-ac831.firebaseio.com",
+    "project_id": "homework07-ac831",
+    "storage_bucket": "homework07-ac831.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243081105866:android:7b13236fadb1d02f",
+        "android_client_info": {
+          "package_name": "com.example.teja.homework07"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "243081105866-b2ih8qtr93mhhrlg729r76rv9ns9ppjo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.teja.homework07",
+            "certificate_hash": "0dbdb05098759f88831d545070bb38484f105531"
+          }
+        },
+        {
+          "client_id": "243081105866-h62oclk93r47nek34ss4cco9f83mfo17.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB67zM0K71EPTDID6GBBxLazFwzlzL3Uks"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243081105866-h62oclk93r47nek34ss4cco9f83mfo17.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
