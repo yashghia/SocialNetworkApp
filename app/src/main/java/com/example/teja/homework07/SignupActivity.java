@@ -103,6 +103,7 @@ public class SignupActivity extends AppCompatActivity {
         }
     }
     public void createUser(final String emailText1, String conpasswordText1){
+        mAuth = FirebaseAuth.getInstance();
         mAuth.createUserWithEmailAndPassword(emailText1, conpasswordText1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
