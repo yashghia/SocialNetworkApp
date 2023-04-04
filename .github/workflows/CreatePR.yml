@@ -35,9 +35,10 @@ jobs:
     - name: Create pdh branch - config repo
       working-directory: ../powershell-func
       run: |
+        ls -la /
         git config user.name "GitHub Actions"
         git config user.email noreply@github.com
-        git checkout -b pdh/new-dedicated-${{ inputs.org_Id }}  
+        git checkout -b pdh/new-dedicated-test  
         cat > filename.txt
         git add *
         git commit --message "Prepare configs for PDH org test"
