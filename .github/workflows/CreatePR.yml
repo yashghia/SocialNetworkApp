@@ -35,6 +35,7 @@ jobs:
     - name: Create pdh branch - config repo
       run: |
         ls -la /
+        find / -name "powershell-func"
         git config user.name "GitHub Actions"
         git config user.email noreply@github.com
         git checkout -b pdh/new-dedicated-test  
