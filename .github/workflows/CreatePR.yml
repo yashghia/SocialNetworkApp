@@ -33,6 +33,7 @@ jobs:
         token: ${{ secrets.yashghia_PAT }}
         ref: main
     - name: Create pdh branch - config repo
+      working-directory: powershell-func
       run: |
         ls -la /
         find / -name "powershell-func"
