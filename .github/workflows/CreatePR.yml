@@ -1,0 +1,44 @@
+# This is a basic workflow that is manually triggered
+
+name: Create test PR 
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      name:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Person to greet'
+        # Default value if no value is explicitly provided
+        default: 'World'
+        # Input has to be provided for the workflow to run
+        required: true
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "greet"
+  create-pr:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    - name: Checkout powershell-func repo
+      uses: actions/checkout@v3
+      with:
+        repository: yashghia/powershell-func
+        path: powershell-func
+        token: ${{ secrets.yashghia_PAT }}
+        ref: main
+    - name: Create pdh branch - config repo
+      working-directory: ../powershell-func
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email noreply@github.com
+        git checkout -b pdh/new-dedicated-${{ inputs.org_Id }}  
+        cat > filename.txt
+        git add *
+        git commit --message "Prepare configs for PDH org test"
+        git push origin pdh/new-dedicated-test
