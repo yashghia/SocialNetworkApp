@@ -45,6 +45,6 @@ jobs:
         git add *
         git commit --message "Prepare configs for PDH org test"
         # git push origin pdh/new-dedicated-test
-        git push origin
+        git push origin --force
         # gh pr create --title "Prepare configs for PDH org test" --body "Prepare configs for PDH org test"  --base main --head pdh/new-dedicated-test
         
