@@ -41,7 +41,7 @@ jobs:
         git config user.name "GitHub Actions"
         git config user.email noreply@github.com
         # git checkout -b pdh/new-dedicated-test  
-        cat > filename.txt
+        echo 'text' &>> filename.txt
         git add *
         git commit --message "Prepare configs for PDH org test"
         # git push origin pdh/new-dedicated-test
